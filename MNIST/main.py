@@ -129,36 +129,36 @@ if(architecture == 'PSI_low_rank_architecture_4layer'):
 if(architecture == 'PSI_Backward_low_rank_architecture'):
     integrator = 'PSI_Backward'
     architecture_model = [
-    {'type': 'PSI_Backward_low_rank_architecture', 'dims': [784, 500], 'rank': rank},
-    {'type': 'PSI_Backward_low_rank_architecture', 'dims': [500, 500], 'rank': rank},
+    {'type': 'PSI_Backward_dynamical_low_rank', 'dims': [784, 500], 'rank': rank},
+    {'type': 'PSI_Backward_dynamical_low_rank', 'dims': [500, 500], 'rank': rank},
     {'type': 'dense', 'dims': [500, 10]}
     ]
 
-if(architecture == 'PSI_Backward_low_rank_architecture'):
+if(architecture == 'PSI_Backward_low_rank_architecture_4layer'):
     integrator = 'PSI_Backward'
     architecture_model = [
-    {'type': 'PSI_Backward_low_rank_architecture', 'dims': [784, 500], 'rank': rank},
-    {'type': 'PSI_Backward_low_rank_architecture', 'dims': [500, 500], 'rank': rank},
-    {'type': 'PSI_Backward_low_rank_architecture', 'dims': [500, 500], 'rank': rank},
-    {'type': 'PSI_Backward_low_rank_architecture', 'dims': [500, 500], 'rank': rank},
+    {'type': 'PSI_Backward_dynamical_low_rank', 'dims': [784, 500], 'rank': rank},
+    {'type': 'PSI_Backward_dynamical_low_rank', 'dims': [500, 500], 'rank': rank},
+    {'type': 'PSI_Backward_dynamical_low_rank', 'dims': [500, 500], 'rank': rank},
+    {'type': 'PSI_Backward_dynamical_low_rank', 'dims': [500, 500], 'rank': rank},
     {'type': 'dense', 'dims': [500, 10]}
     ]
       
 if(architecture == 'PSI_Augmented_Backward_low_rank_architecture'):
     integrator = 'PSI_Augmented_Backward'
     architecture_model = [
-        {'type': 'PSI_Augmented_Backward_low_rank_architecture', 'dims': [784, 500], 'rank': rank, 'tol': tol},
-        {'type': 'PSI_Augmented_Backward_low_rank_architecture', 'dims': [500, 500], 'rank': rank, 'tol': tol},
+        {'type': 'PSI_Augmented_Backward_dynamical_low_rank', 'dims': [784, 500], 'rank': rank, 'tol': tol},
+        {'type': 'PSI_Augmented_Backward_dynamical_low_rank', 'dims': [500, 500], 'rank': rank, 'tol': tol},
         {'type': 'dense', 'dims': [500, 10]}
     ]
 
-if(architecture == 'PSI_Augmented_Backward_low_rank_architecture'):
+if(architecture == 'PSI_Augmented_Backward_low_rank_architecture_4layer'):
     integrator = 'PSI_Augmented_Backward'
     architecture_model = [
-    {'type': 'PSI_Augmented_Backward_low_rank_architecture', 'dims': [784, 500], 'rank': rank, 'tol': tol},
-    {'type': 'PSI_Augmented_Backward_low_rank_architecture', 'dims': [500, 500], 'rank': rank, 'tol': tol},
-    {'type': 'PSI_Augmented_Backward_low_rank_architecture', 'dims': [500, 500], 'rank': rank, 'tol': tol},
-    {'type': 'PSI_Augmented_Backward_low_rank_architecture', 'dims': [500, 500], 'rank': rank, 'tol': tol},
+    {'type': 'PSI_Augmented_Backward_dynamical_low_rank', 'dims': [784, 500], 'rank': rank, 'tol': tol},
+    {'type': 'PSI_Augmented_Backward_dynamical_low_rank', 'dims': [500, 500], 'rank': rank, 'tol': tol},
+    {'type': 'PSI_Augmented_Backward_dynamical_low_rank', 'dims': [500, 500], 'rank': rank, 'tol': tol},
+    {'type': 'PSI_Augmented_Backward_dynamical_low_rank', 'dims': [500, 500], 'rank': rank, 'tol': tol},
     {'type': 'dense', 'dims': [500, 10]}
     ]
 

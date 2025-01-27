@@ -52,7 +52,7 @@ class Trainer:
             optimizer = optim.Adam(self.model.parameters(), lr=learning_rate)
         else: 
             print("invalid opimizer chosen")
-
+        
         if(integrator == "Dense"):
             steps = ['dense']
         if(integrator == "PSI"):
