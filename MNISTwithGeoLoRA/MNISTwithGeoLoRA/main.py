@@ -42,6 +42,8 @@ rank = args.rank
 now = datetime.now()
 folder_name = now.strftime("%Y-%m-%d_%H-%M") + "_" + architecture + "New_epochs" + str(num_epochs) + "_lr" + str(learning_rate).split(".")[-1] + "_" + optimizer + "_tolerance_x100" + str(tol * 100)
 output_path = Path.cwd() / Path('trained_models') / Path(folder_name)
+if not Path(output_path).parent.is_dir():
+    Path.mkdir(Path(output_path).parent)
 
 # define logging info
 watermark = "modelChoice{}_lr{}_batchSize{}_epochs{}_optimizer{}_initRank{}_tolerance{}".format(
@@ -113,6 +115,14 @@ if(architecture == 'PSI_low_rank_architecture'):
     architecture_model = [
     {'type': 'PSI_dynamical_low_rank', 'dims': [784, 500], 'rank': rank},
     {'type': 'PSI_dynamical_low_rank', 'dims': [500, 500], 'rank': rank},
+    {'type': 'dense', 'dims': [500, 10]}
+    ]
+
+if(architecture == 'GeoLoRA_architecture'):
+    integrator = 'GeoLoRA'
+    architecture_model = [
+    {'type': 'GeoLoRA', 'dims': [784, 500], 'rank': rank, 'tol': tol},
+    {'type': 'GeoLoRA', 'dims': [500, 500], 'rank': rank, 'tol': tol},
     {'type': 'dense', 'dims': [500, 10]}
     ]
 

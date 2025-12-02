@@ -17,6 +17,7 @@ class Trainer:
         """
         # Set the device (GPU or CPU)
         self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+        #self.device = torch.device("cpu")
 
         # Initialize the model
         self.model = Network(net_architecture).to(self.device)
@@ -28,6 +29,8 @@ class Trainer:
             self.dlr_layer_ids = [index for index, layer in enumerate(net_architecture) if layer['type'] == 'PSI_Backward_dynamical_low_rank']
         if(integrator == "PSI_Augmented_Backward"):
             self.dlr_layer_ids = [index for index, layer in enumerate(net_architecture) if layer['type'] == 'PSI_Augmented_Backward_dynamical_low_rank']
+        if(integrator == "GeoLoRA"):
+            self.dlr_layer_ids = [index for index, layer in enumerate(net_architecture) if layer['type'] == 'GeoLoRA']
         
         # store train and test data
         self.train_loader = train_loader
@@ -59,6 +62,8 @@ class Trainer:
             steps = ['K', 'S', 'L']
         if(integrator == "PSI_Backward" or integrator == "PSI_Augmented_Backward"):
             steps = ['K', 'L']
+        if(integrator == "GeoLoRA"):
+            steps = ['KSL']
 
         # Training loop
         for epoch in range(num_epochs):
